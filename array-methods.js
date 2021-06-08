@@ -11,7 +11,7 @@ export const filter = (arr, fn) => {
   const filteredArr = [];
   for(let i = 0; i < arr.length; i++) {
     if(fn(arr[i])) {
-      filteredArr[i] = arr[i];
+      filteredArr[filteredArr.length] = arr[i];
     }
   }
   console.log(filteredArr);
