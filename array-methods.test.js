@@ -10,11 +10,9 @@ describe('take array, make changes to items in array, return changed items in ne
   });
 
   it('take array of names, returns new array if names start with j', () => {
-    const names = ['joe', 'mama', 'bill', 'james'];
+    const names = ['joe', 'james', 'mama', 'bill'];
     function justJNames(str) {
-      if(str.startsWith('j')) {
-        return str;
-      }
+      return str[0] === 'j';
     }
     expect(filter(names, justJNames)).toEqual(['joe', 'james']);
   });
