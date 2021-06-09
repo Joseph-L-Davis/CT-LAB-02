@@ -21,8 +21,7 @@ export const findIndex = (arr, fn) => {
   for(let i = 0; i < arr[i].length; i++) {
     if(fn(arr[i])) {
       arr.length = i;
-      const index = arr.length;
-      return index;
+      return arr.length;
     }
   }
 };
