@@ -14,6 +14,15 @@ export const filter = (arr, fn) => {
       filteredArr[filteredArr.length] = arr[i];
     }
   }
-  console.log(filteredArr);
   return filteredArr;
+};
+
+export const findIndex = (arr, fn) => {
+  for(let i = 0; i < arr[i].length; i++) {
+    if(fn(arr[i])) {
+      arr.length = i;
+      const index = arr.length;
+      return index;
+    }
+  }
 };
