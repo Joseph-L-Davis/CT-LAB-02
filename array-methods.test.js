@@ -1,4 +1,4 @@
-import { every, filter, findIndex, map } from './array-methods.js';
+import { every, filter, findIndex, map, reduce } from './array-methods.js';
 
 describe('take array, make changes to items in array, return changed items in new array', () => {
   it('take array of names, capitalize names and add to new array', () => {
@@ -26,10 +26,42 @@ describe('take array, make changes to items in array, return changed items in ne
   });
 
   it('take array of names, returns true if all items start with a b', () => {
-    const names = ['boe', 'bama', 'bames', 'bill'];
+    const names = ['boe', 'bama', 'bames', 'bill', 'besus'];
     function justBNames(str) {
       return str[0] === 'b';
     }
     expect(every(names, justBNames)).toBe(true);
+  });
+
+  it('take array of numbers, returns sum of numbers', () => {
+    const nums = [1, 2, 3, 4, 5];
+    function sumOfNums(acc, num) {
+      acc += num;
+      // console.log(acc);
+      return acc;
+    }
+    expect(reduce(nums, sumOfNums, 0)).toBe(15);
+  });
+
+  it('take array of names, returns first letter of each item', () => {
+    const names = ['michael', 'tito', 'joe', 'jackson'];
+    function firstLetterGrabber(acc, str) {
+      acc += str[0];
+      // console.log(acc);
+      return acc;
+    }
+    expect(reduce(names, firstLetterGrabber, '')).toBe('mtjj');
+  });
+
+  it('take array of names, returns only names that start with t', () => {
+    const names = ['michael', 'tito', 'joe', 'jackson', 'tony'];
+    function tNamesOnly(acc, str) {
+      if(str[0] === 't'){
+        acc += (str + ' ');
+      }
+      // console.log(acc);
+      return acc;
+    }
+    expect(reduce(names, tNamesOnly, '')).toBe('tito tony ');
   });
 });

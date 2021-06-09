@@ -40,3 +40,12 @@ export const every = (arr, fn) => {
     return false;
   }
 };
+
+export const reduce = (arr, fn, initialVal) => {
+  let acc = initialVal;
+  for(let i = 0; i < arr.length; i++) {
+    const currentVal = arr[i];
+    acc = fn(acc, currentVal);
+  }
+  return acc;
+};
