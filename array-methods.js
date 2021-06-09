@@ -25,3 +25,18 @@ export const findIndex = (arr, fn) => {
     }
   }
 };
+
+export const every = (arr, fn) => {
+  const len = arr.length;
+  const totalArr = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(fn(arr[i])) {
+      totalArr[totalArr.length] = arr[i];
+    } 
+  }
+  if(totalArr.length === len) {
+    return true;
+  } else {
+    return false;
+  }
+};

@@ -1,4 +1,4 @@
-import { filter, findIndex, map } from './array-methods.js';
+import { every, filter, findIndex, map } from './array-methods.js';
 
 describe('take array, make changes to items in array, return changed items in new array', () => {
   it('take array of names, capitalize names and add to new array', () => {
@@ -23,5 +23,13 @@ describe('take array, make changes to items in array, return changed items in ne
       return str[0] === 'b';
     }
     expect(findIndex(names, justBNames)).toEqual(3);
+  });
+
+  it('take array of names, returns true if all items start with a b', () => {
+    const names = ['boe', 'bama', 'bames', 'bill'];
+    function justBNames(str) {
+      return str[0] === 'b';
+    }
+    expect(every(names, justBNames)).toBe(true);
   });
 });
